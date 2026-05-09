@@ -1,0 +1,88 @@
+# 阳光通道网络架构示意图集
+
+以下是为阳光通道项目整理的核心示意图，帮助新手快速理解网络架构、分流逻辑与风险规避方案。你可以直接将这些图片或 Mermaid 代码嵌入到项目 README 或教程文档中。
+
+---
+
+## 1\. 整体架构：阳光通道流量路径
+
+### 示意图
+
+![Image](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OTEwNGIyZDQ3OGQ2YjdlN2YzODcyMGFjOThkNjQ3YzFfMDk2NmE1ZTA2OGFhY2UzNWE2Mzc2YzIyZGZmNWYxMDZfSUQ6NzYzNzgzMDk2NDgzMTQyMzY3OF8xNzc4MzIxMTUxOjE3Nzg0MDc1NTFfVjM)
+
+### 说明
+
+- **中文**：本地设备（电脑 / 手机）通过 SSH 加密隧道连接海外 VPS，海外流量经由 VPS 转发访问 GitHub、YouTube 等海外服务；国内网站则直接直连，不经过隧道，保证国内访问的速度与稳定性。
+
+- **英文**：Local devices \(laptop/smartphone\) connect to the overseas VPS via an encrypted SSH tunnel\. Overseas traffic is forwarded by the VPS to access services like GitHub, YouTube and Stack Overflow, while domestic websites are accessed directly without going through the tunnel to ensure speed\.
+
+### 可嵌入 Mermaid 代码
+
+```mermaid
+flowchart LR
+    A[你的电脑 / 手机] -->|SSH 加密隧道| B[海外 VPS]
+    B -->|直连| C[GitHub / 技术文档 / YouTube]
+    A -->|直连不经过 VPS| D[国内网站 / 应用]
+    style A fill:#fffbe6,stroke:#ffc107
+    style B fill:#e3f2fd,stroke:#1976d2
+    style C fill:#e8f5e9,stroke:#388e3c
+    style D fill:#f3e5f5,stroke:#7b1fa2```
+
+---
+
+## 2\. 分流规则：DNS \+ 隧道路由路径
+
+### 示意图
+
+![Image](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZmExNmIyNjJlYjI3YTgyMTE5ZTA4MDg5MjhhY2I2ZDNfZWEyMDczZjAwNGZiYTU0MDMwMDk0ODUxYzM0NTQ3NmNfSUQ6NzYzNzgzMDk4MTE0Mzk0MDI3NF8xNzc4MzIxMTUxOjE3Nzg0MDc1NTFfVjM)
+
+### 说明
+
+- **中文**：Clash 规则引擎会对网络请求进行自动分流，命中白名单的海外域名会走 SOCKS5 代理和 SSH 隧道转发；同时对应的 DNS 请求也会通过隧道转发，避免 DNS 污染导致的解析失败。未命中白名单的国内请求则直接直连，无需经过代理。
+
+- **英文**：The Clash rules engine automatically splits network traffic\. Requests matching the allowlist \(overseas domains\) go through the SOCKS5 proxy and SSH tunnel, with corresponding DNS queries also forwarded through the tunnel to avoid DNS pollution\. Unmatched domestic requests are connected directly without proxy\.
+
+### 可嵌入 Mermaid 代码
+
+```mermaid
+flowchart TD
+    A[浏览器发起请求] --> B{Clash 规则引擎}
+    B -->|命中白名单<br>github.com 等| C[走 SOCKS5 代理]
+    C --> D[SSH 加密隧道]
+    D --> E[海外 VPS]
+    E --> F[目标网站]
+    B -->|未命中白名单<br>baidu.com 等| G[直连]
+    G --> H[国内目标网站]
+    C --> I{本地 DNS 解析}
+    I -->|通过隧道| J[避免 DNS 污染]
+    style B fill:#fff3e0,stroke:#f57c00
+    style C fill:#e3f2fd,stroke:#1976d2
+    style G fill:#f3e5f5,stroke:#7b1fa2```
+
+---
+
+## 3\. 风险示意：校园网环境下 DPI 检测逻辑
+
+### 示意图
+
+![Image](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ODk5MTc3NjBkMzBiMGUxZTRjYzdjNmRmYmUxNjhmMDlfZTk1OTVkZjkzZGJiNGYzNmQ2ZjAxOTE3MTUyNWJiNzhfSUQ6NzYzNzgzMTAwNjMzMDI3NzA2OV8xNzc4MzIxMTUxOjE3Nzg0MDc1NTFfVjM)
+
+### 说明
+
+- **中文**：校园网的深度包检测（DPI）系统会识别隧道流量的特征，使用标准端口、保持正常心跳的合规流量会被正常放行；而使用非标端口、发送密集心跳的异常流量则可能被系统阻断，甚至触发安全告警，这是配置过程中需要重点规避的风险点。
+
+- **英文**：The school network\&\#39;s Deep Packet Inspection \(DPI\) system identifies tunnel traffic characteristics\. Traffic using standard ports and normal heartbeat will be allowed normally, while traffic with non\-standard ports and dense heartbeat may be blocked by the system or even trigger security alerts, which is a key risk to avoid during configuration\.
+
+### 可嵌入 Mermaid 代码
+
+```mermaid
+flowchart LR
+    A[你的电脑] -->|SSH 隧道| B[校园网 DPI]
+    B -->|识别流量特征| C{是否触发规则}
+    C -->|否: 标准端口 / 正常心跳| D[放行]
+    C -->|是: 非标端口 / 密集心跳| E[阻断 / 告警]
+    style B fill:#ffebee,stroke:#c62828
+    style E fill:#ffcdd2,stroke:#b71c1c
+    style D fill:#e8f5e9,stroke:#2e7d32```
+
+> （注：文档部分内容可能由 AI 生成）
