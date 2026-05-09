@@ -396,7 +396,116 @@ We also do not introduce a CDN into this setup. A CDN hides your server’s real
 
 ---
 
-### 12. Final words: hold the boundary, to protect freer creation
+### 12. If You're Stopped: From "What Are You Doing?" to a Clean Resolution
+
+This section prepares you for the moment someone from your school's IT department or network security team notices your encrypted SSH tunnel and comes to ask about it. We also cover what happens if your initial request for permission is declined. There is no need to panic. You built this tunnel to walk in the sunlight, and these conversations are simply about letting that sunlight in a little more directly.
+
+
+#### 12.1 Before Someone Comes to You: Proactive Registration
+
+Before anyone knocks on your door, consider taking the initiative. Waiting to be noticed risks confusion, but proactively introducing yourself and your setup turns a "who is this?" into a "good to know."
+
+**Approaching your IT office or network security teacher first:**
+
+> "Hello, I'm [Name], a student in the [Department]. For my regular development work—accessing GitHub, technical documentation, and watching programming tutorials—I built a personal encrypted tunnel to a small cloud server I rent myself. It only routes a handful of allowed developer sites and isn't shared with anyone. I wanted to come tell you myself before it ever showed up in logs and caused confusion. I'm also happy to register this setup if that helps."
+
+By registering, you are not asking for permission—you are asking for understanding. That alone often lowers the threat perception from "suspicious encrypted connection" to "transparent student project."
+
+**Along with your statement, you can offer a simple, clear registration document that includes:**
+1. Your name, student ID, and contact information.
+2. The VPS IP address and confirmation that you pay for it yourself.
+3. The full list of allowed development domains—only, say, GitHub, Stack Overflow, MDN, and a few others.
+4. A short technical note explaining the tunnel is a standard SSH encrypted connection, not a public proxy service.
+5. A signed statement confirming you take sole responsibility for everything that passes through the channel.
+
+This document creates a clear, auditable record. Understand that not every IT department has a formal process for registering personal development tunnels. That is fine. The act of offering itself shows you are not trying to hide anything.
+
+
+#### 12.2 If You Are Asked: "What Are You Doing?"
+
+If a network administrator or teacher notices your connection and asks what you are doing, they are usually not accusing you. They likely just see a persistent encrypted connection in the logs and want to know whether it is something legitimate or something they need to worry about.
+
+**Step 1: Stop immediately.**
+
+Before anything else, stop running the tunnel. Whether through your terminal or Clash, close the connection. This shows you are cooperative and take their concerns seriously. You can say:
+
+> "I've stopped the connection right now. I only use it to reach a few developer tools, and if there's a problem, I'm happy to comply."
+
+**Step 2: Explain what it is and what it is not.**
+
+Most questions come from a place of uncertainty, not hostility. Your job is to be open about what you built:
+
+> "It's a personal SSH tunnel to my own rented cloud server. It's not a shared proxy or a public service—I pay for it, I build it, and I only use it to access sites like GitHub, technical documentation, and programming tutorials."
+
+**What they need to hear quickly:**
+- It is a personal tool, not a shared proxy.
+- It is paid for by you, not using school resources.
+- It only carries a handful of allowed development sites.
+- You are willing to register or document it.
+
+**Step 3: Show your proof.**
+
+The strongest evidence you have is the work you already do every day:
+
+1. Your GitHub repository—show them your open-source projects.
+2. A copy of this handbook—show them the rules you follow.
+3. Your allowlist configuration—show them only a handful of development domains pass through the tunnel.
+4. If you have them, letters or comments from people your tools have helped.
+
+This shifts the conversation from "what are you doing?" to "this student builds things that help people." That is a very different frame.
+
+**Step 4: Ask about the specific rule.**
+
+Politely find out which rule your setup might conflict with:
+
+> "Thank you for letting me know. Could you help me understand which specific school policy or network regulation this falls under? I want to make sure I fully understand the boundary."
+
+#### 12.3 If Your Registration or Request Is Declined
+
+A "no" is rarely the end of the conversation. Usually it is the beginning of finding a compliant middle ground.
+
+**First, clarify the specific rule (as above).** If the rule is not explicitly about personal SSH tunnels, propose an alternative middle path:
+
+> "I understand the need to manage network security. What I built is strictly personal—it's tied to my own VPS, with a strict allowlist, and not shared with anyone. I'm happy to formally register or file this setup with the IT office, so you know exactly what it does and who is responsible. Would that be something we could explore?"
+
+**If the teacher seems open, offer the formal registration document** described in 12.1. Turning a student use of encryption into a documented, auditable, low-risk arrangement is often exactly what IT staff are looking for.
+
+**If the answer remains no, accept it gracefully:**
+
+> "I understand and respect the decision. I will disable the tunnel and wait for any policy updates. Thank you for taking the time to talk through this with me."
+
+Then actually disable the tunnel and wait. Do not try to hide it. Do not look for workarounds. The trust you build by respecting the rules you do not like is the foundation for winning the rules you do support later.
+
+
+#### 12.4 Handy Ready-Made Phrases for Registration
+
+Below are some ready-made phrases you can copy, fill in, and use directly in a conversation with your teacher or IT office. They're written to be clear, respectful, and factual—nothing more, nothing less.
+
+**① Low-threshold inquiry (when approaching for the first time)**
+
+> "Hello, I'm [Name], a student in the [Department]. I do open-source development and need regular access to GitHub, technical documentation, and instructional videos. Since the school does not currently offer a suitable VPN, I built a personal, encrypted SSH tunnel to my own rented cloud server. It only routes a handful of allowed developer websites. I wanted to come introduce myself before it ever appeared in logs and caused confusion. Would there be a way to register or document this so the IT office knows what it is and who is responsible?"
+
+**② When politely asking which specific rule applies**
+
+> "Of course. So that I can make sure I get it right, could you point me toward the specific section of the policy that applies here? I'd like to read it carefully."
+
+**③ Offering a formal registration document**
+
+> "I've actually put together a registration document for this—it lists exactly which domains I access, the server IP, and a signed statement accepting full responsibility. Would it be helpful if I filed this with the IT office?"
+
+**④ Accepting a "no" with grace**
+
+> "That's clear. I'll stop using it right away and keep an eye on any future policy updates. Thank you for your time—I really appreciate it."
+
+These phrases aren't scripts you need to memorise. When the time comes, you can have them open on your phone or printed out and speak naturally from memory. The goal is always the same: a conversation that ends with you walking away respected, even if the answer is no.
+
+---
+
+> **Why this section matters:**
+>
+> The purpose of this guide is to equip you with a clean, transparent, audit-proof development environment. A prepared, sincere learner who takes the initiative to reach out and communicate is not the person a system is trying to block. More often, the system just needs to know you are not a threat—because, genuinely, you aren't.
+
+### 13. Final words: hold the boundary, to protect freer creation
 
 Now, the channel in your hands is something you’ve built under the sunlight—with respect for the rules, sincerity towards the technology, and your own hands. It is clean.
 
