@@ -326,6 +326,20 @@ rules:
 ```
 3.  **Save and “activate” this profile**, then turn on the `System Proxy` switch in the app’s main interface. Your browser is now managed by it.
 
+⚠️ A Gentle but Firm Ethical Note on Clash Verge Rev
+
+Clash Verge Rev is a powerful network routing tool. In this handbook, we only recommend using it as a client to connect to the SOCKS5 tunnel you built yourself—your own private, compliant lane under the sun.
+
+We feel a deep responsibility to tell you this:
+
+Never import nodes from unknown sources. The internet is full of "free nodes" and "airport subscription links". You have no idea who runs them or what they're really after. They can log everything you do online, steal your passwords and private data, or even use your device as a middleman for illegal activities. Please, don't take that risk.
+
+Never share your personal tunnel. The SSH tunnel you set up following this guide is your resource—paid with your own money, protected by your own key, and carried on your own shoulders. If you share it with others, their risks become your risks, and that can quickly cross legal boundaries. Keep it yours.
+
+Your allowlist is your last line of defense. Please keep the strict allowlist rules in your configuration file. They make sure your tunnel is only used to reach the development resources you really need—not that one sketchy site you got curious about, and definitely not what someone else might trick you into visiting.
+
+The whole purpose of this handbook is to show you how to use compliant tools to walk a bright, open road. If you take this same tool and mix in nodes of unknown origin, you're not just betraying all the effort we've put into this—you might just push yourself back toward the edge. Tools don't have morals. You do.
+
 #### 9.4 Using it on your mobile phone
 
 1.  Install **Termius** and import your `id_ed25519` private key file.
