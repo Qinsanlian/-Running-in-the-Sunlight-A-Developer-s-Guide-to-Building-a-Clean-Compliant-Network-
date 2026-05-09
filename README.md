@@ -97,6 +97,9 @@ The lesson this teaches us is very clear: **no matter how clever a technology is
 
 ---
 
+<img width="1024" height="1024" alt="553d55fa-5b1c-4e32-9822-defd376e0490" src="https://github.com/user-attachments/assets/9c83cf43-0c48-4503-a69b-5370aef5321e" />
+
+
 ### 4. Why SOCKS5? A reflection on “fingerprints”
 
 #### 4.1 Your network “fingerprint”
@@ -300,6 +303,9 @@ curl.exe -v -x socks5h://127.0.0.1:1080 https://github.com
 ```
 If a bunch of webpage code comes rushing back (something like `HTTP/2 200` and HTML content), congratulations! The tunnel is working.
 
+<img width="1024" height="1024" alt="caff5024-9894-4bc3-b15c-dd9942566ddf" src="https://github.com/user-attachments/assets/ecbdda32-ffab-4ead-b2ca-0fd15bd6dde1" />
+
+
 #### 9.3 Letting your browser and apps use the tunnel intelligently: configuring Clash Verge Rev
 
 We need a smart dispatcher—one that automatically sends traffic to GitHub through the tunnel, and lets domestic sites go directly.
@@ -363,6 +369,9 @@ The whole purpose of this handbook is to show you how to use compliant tools to 
 2.  Add a Host: set the address to your server IP, port `2222`, username to your normal user, and authentication to `Key` (select your imported key).
 3.  Save and connect. Then, under “Port Forwarding”, add a new rule: type `Dynamic`, local port `8443`.
 4.  Install **SocksDroid**. Set the proxy address to `127.0.0.1`, port `8443`, then toggle the switch on. When you’re done, remember to disconnect in Termius.
+
+<img width="1024" height="1024" alt="cbea72b1-9b92-41cb-b5f4-eae866ada08c" src="https://github.com/user-attachments/assets/f7cd149f-42e8-4e43-85f8-abe66b7d21e5" />
+
 
 #### 9.5 A few tips, and “what if…”
 
