@@ -41,6 +41,23 @@ If the answer is “not yet available”, or if your application is not approved
 **A core principle: do not create needs that do not exist.**
 A mature developer knows how to add things, and also knows how to subtract. We solve problems only within the bounds of the rules. You’re not a ship hiding in the sewer; you’re a sail under the open sun.
 
+⚠️ Strictly Personal Use — Do Not Share
+
+The SOCKS5-over-SSH tunnel you build following this handbook is your personal development tool—paid with your own money, protected by your own encryption key, and carried on your own legal responsibility.
+
+Do not share it with anyone. Not your classmates. Not your friends. Not strangers online.
+
+Sharing your tunnel—whether intentionally or accidentally—can lead to consequences far beyond what you may expect:
+
+You are legally liable for what others do through your server. If someone uses your shared tunnel to access illegal content, distribute malware, or conduct fraudulent activities, the traceable IP belongs to you, not to them. You will be the one facing legal investigation and potential prosecution.
+
+You lose every protection this handbook is designed to give you. The entire philosophy behind this guide—transparency, compliance, personal accountability—collapses the moment you hand your tunnel to someone else. What was once a clean, aboveboard development tool becomes an unregulated proxy, indistinguishable from the gray-market services we explicitly warn against.
+
+You put your entire developer identity at risk. A single misuse incident on your server can result in your VPS being permanently banned, your payment accounts flagged, and your GitHub repositories scrutinized. The trust you have worked so hard to build—with your school, with the open-source community, with yourself—can be destroyed overnight.
+
+If someone genuinely needs a development tunnel, teach them to build their own. Point them to this handbook. Let them go through the same learning process you did, so they understand not just the technical steps, but the responsibility that comes with them.
+
+Your tunnel is yours. Keep it that way.
 ---
 
 ### 2. Why I’m writing this, and the system we are dealing with
